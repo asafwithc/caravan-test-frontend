@@ -14,7 +14,7 @@ function ImageUpload() {
     formData.append('image', selectedImage);
 
     try {
-      const response = await axios.post('http://localhost:3010/image', formData, {
+      const response = await axios.post('http://localhost:3010/user/caravan-list/list', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

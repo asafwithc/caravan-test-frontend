@@ -4,6 +4,7 @@ import 'firebase/compat/auth';
 import { useEffect, useState } from 'react';
 import ListOfUsers from './components/listOfUsers';
 import Image from './components/image'
+import Messaging from './components/message';
 
 function App() {
   const [auth, setAuth] = useState(
@@ -22,10 +23,9 @@ function App() {
 			}
 		});
 	}, []);
-
   useEffect(() => {
     console.log(token);
-  }, [])
+  })
 
   const loginWithGoogle = () => {
     
@@ -42,10 +42,12 @@ function App() {
   return (
     <div className="App">
       <Image/>
+      
       {auth ? (
         <>
         <button onClick={loginWithGoogle}>login</button>
           <button onClick={logout}>logout</button>
+          <Messaging token={token}/>
           <ListOfUsers token={token}/>
         </>
         
